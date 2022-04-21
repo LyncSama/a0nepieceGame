@@ -578,7 +578,21 @@ local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPa
      end
 end)
 AutoFram:Seperator()
- AutoFram:Label("------- Auto Skill -------")
+ AutoFram:Label("------- Other System -------")
+ AutoFram:Toggle("Auto Farm Defense",false,function(bool)
+_G.AutoDef = bool
+ end)
+ spawn(function()
+    while wait() do
+        if _G.AutoDef then
+            pcall(function()
+local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(6, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-1352.660400390625, -120.25172424316406, 735.6336669921875)}):Play()
+           end)
+         end
+     end
+end)
 AutoFram:Toggle("Auto Boost + Buso ",false,function(bool)
 
     game.Players.localPlayer.Character.Humanoid.Health = 0
