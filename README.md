@@ -1,13 +1,39 @@
-local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Patskorn/GUI/main/Copy-SynapOver.lua"))()
+local DiscordLib = loadstring(game:HttpGet"https://pastebin.com/raw/XMBepAJH")()
 
-local GUI = library:new("Blacky Hub","A 0nepiece Game")
-local AutoFram = GUI:Tap("Main")
-AutoFram:Button("Tween Maokuma (Quest Giver)",function()
-    local TweenService = game:GetService("TweenService")
-local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
-{CFrame = CFrame.new(3008.46533203125, -56.859169006347656, 1225.415771484375)}):Play()
-end)
-AutoFram:Line()
+local win = DiscordLib:Window("Blacky Hub")
+
+local serv = win:Server("A 0nepiece Game", "")
+local AutoFram = serv:Channel("Main")
+ Times = AutoFram:Label("Server Time")
+ local function UpdateTime()
+ local GameTime = math.floor(workspace.DistributedGameTime+0.5)
+ local Hour = math.floor(GameTime/(60^2))%24
+ local Minute = math.floor(GameTime/(60^1))%60
+ local Second = math.floor(GameTime/(60^0))%60
+ Times:Refresh("Hour : "..Hour.." Minute : "..Minute.." Second : "..Second)
+ end
+ spawn(function()
+ while true do
+ UpdateTime()
+ game:GetService("RunService").RenderStepped:Wait()
+ end
+ end)
+ Time = AutoFram:Label("Client")
+ local function UpdateTime()
+ local GameTime = math.floor(workspace.DistributedGameTime+0.5)
+ 
+ local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
+ local Fps = (workspace:GetRealPhysicsFPS())
+ Time:Refresh("Fps :"..Fps.."Ping :"..Ping)
+ end
+ spawn(function()
+ while true do
+ UpdateTime()
+ game:GetService("RunService").RenderStepped:Wait()
+ end
+ end)
+ AutoFram:Seperator()
+ AutoFram:Label("------- AutoFarm Marco -------")
 AutoFram:Toggle("Auto Farm Marco ",false,function(bool)
  _G.bandit = bool
  end)
@@ -65,7 +91,8 @@ local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPa
          end
      end
 end)
-AutoFram:Line()
+AutoFram:Seperator()
+ AutoFram:Label("------- AutoFarm Katakuri -------")
 AutoFram:Toggle("Auto Katakuri",false,function(bool)
 _G.Katakuri = bool
 end)
@@ -103,7 +130,8 @@ local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPa
          end
      end
 end)
-AutoFram:Line()
+AutoFram:Seperator()
+ AutoFram:Label("------- Auto Skill -------")
 AutoFram:Toggle("Auto Boost + Buso ",false,function(bool)
 
     game.Players.localPlayer.Character.Humanoid.Health = 0
@@ -175,8 +203,8 @@ game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(ar
          end
      end
 end)
-AutoFram:Line()
-
+AutoFram:Seperator()
+ AutoFram:Label("------- Notification -------")
 AutoFram:Toggle("Phoenix Scroll Notification",false,function(v)
 	Bool = v
 	if game.Players.LocalPlayer.Backpack:FindFirstChild("Phoenix Scroll") then
@@ -185,6 +213,7 @@ AutoFram:Toggle("Phoenix Scroll Notification",false,function(v)
 		HavePhoenixScroll = true
 	end
 	if HavePhoenixScroll and Bool == true then
+	    DiscordLib:Notification("Notification", "!! You Got Phoenix Scroll !!", "Wow !")
 		while wait() do 
 		                                        game.StarterGui:SetCore("SendNotification", {
                                         Title = "Blacky Notification", 
@@ -203,6 +232,7 @@ AutoFram:Toggle("Katakuri Trident Notification",false,function(v)
 		HaveMogura = true
 	end
 	if HaveMogura and Bool == true then
+        DiscordLib:Notification("Notification", "!! You Got Katakuri Trident !!", "Wow !")
 		while wait() do 
 		                                        game.StarterGui:SetCore("SendNotification", {
                                         Title = "Blacky Notification", 
@@ -221,6 +251,7 @@ AutoFram:Toggle("Mochi Fruit Notification",false,function(v)
 		HaveMochiFruit = true
 	end
 	if HaveMochiFruit and Bool == true then
+        DiscordLib:Notification("Notification", "!! You Got Mochi Fruit !!", "Wow !")
 		while wait() do 
 		                                        game.StarterGui:SetCore("SendNotification", {
                                         Title = "Blacky Notification", 
@@ -239,6 +270,7 @@ AutoFram:Toggle("Katakuri Scarf Notification",false,function(v)
 		HaveCandyScarf = true
 	end
 	if HaveCandyScarf and Bool == true then
+        DiscordLib:Notification("Notification", "!! You Got Candy Scarf !!", "Wow !")
 		while wait() do 
 		                                        game.StarterGui:SetCore("SendNotification", {
                                         Title = "Blacky Notification", 
@@ -249,8 +281,101 @@ AutoFram:Toggle("Katakuri Scarf Notification",false,function(v)
 end
 end
 end)
-AutoFram:Line()
-local misc = GUI:Tap("Setting")
+AutoFram:Seperator()
+local TP = serv:Channel("Island")
+TP:Button("Stop Tween",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)}):Play()
+end)
+TP:Seperator()
+TP:Label("------ Island ------")
+TP:Button("Phoenix Nest",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(3008.46533203125, -56.859169006347656, 1225.415771484375)}):Play()
+end)
+TP:Button("Starter Island",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(278.6219482421875, -50.64528274536133, -212.58203125)}):Play()
+end)
+TP:Button("Wilderness",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-456.3139953613281, -57.10584259033203, 3046.732666015625)}):Play()
+end)
+TP:Button("Arena",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(4881.44287109375, -24.531841278076172, -6226.92626953125)}):Play()
+end)
+TP:Button("Arlong Park",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(2371.4951171875, -58.57895278930664, -915.6734619140625)}):Play()
+end)
+TP:Button("Desert Island",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-400.81549072265625, -56.185489654541016, 7009.05126953125)}):Play()
+end)
+TP:Button("Logue Town",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-3936.0283203125, -49.21131134033203, 810.3729248046875)}):Play()
+end)
+TP:Button("Orange Town",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(1502.439208984375, -58.814998626708984, 2878.705322265625)}):Play()
+end)
+TP:Button("Shell Town",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(5596.21875, -52.28487014770508, -3518.51123046875)}):Play()
+end)
+TP:Button("Skypiea",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(1332.5419921875, 7150.263671875, 1648.3890380859375)}):Play()
+end)
+TP:Button("Marine Ford",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-479.6522216796875, -0.3241960108280182, -4119.2685546875)}):Play()
+end)
+TP:Button("Usopp Village",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-2243.65673828125, 6.175459384918213, -7700.79541015625)}):Play()
+end)
+TP:Button("Impel down",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(1892.109130859375, -51.68156051635742, -3725.058837890625)}):Play()
+end)
+TP:Button("Flamingo Island",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(6244.95263671875, -52.49989700317383, 1492.01904296875)}):Play()
+end)
+TP:Button("Luffy Island",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(1820.8629150390625, -50.127830505371094, -8214.810546875)}):Play()
+end)
+TP:Button("Ice Island",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-1217.64404296875, -60.70600128173828, 310.6053466796875)}):Play()
+end)
+TP:Button("Hot & Cold Island",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(8810.888671875, -44.71370315551758, -2347.32861328125)}):Play()
+end)
+local misc = serv:Channel("Setting")
 misc:Button("Made By BLXCKY#1101",function()
 		                                        game.StarterGui:SetCore("SendNotification", {
                                         Title = "Blacky Notification", 
@@ -260,7 +385,7 @@ misc:Button("Made By BLXCKY#1101",function()
                                     })
 
 end)
-misc:Line()
+misc:Seperator()
 misc:Button("Switch Server",function()
      local PlaceID = game.PlaceId
         local AllIDs = {}
