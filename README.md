@@ -256,6 +256,25 @@ game:GetService("ReplicatedStorage").Remotes.requestAbility:FireServer(unpack(ar
 end)
 AutoFram:Seperator()
  AutoFram:Label("------- Notification -------")
+ AutoFram:Toggle("Golden Hook Notification",false,function(v)
+	Bool = v
+	if game.Players.LocalPlayer.Backpack:FindFirstChild("Golden Hook") then
+		HaveGoldenHook = true
+	elseif game.Players.LocalPlayer.Character:FindFirstChild("Golden Hook") then
+		HaveGoldenHook = true
+	end
+	if HaveMochiFruit and Bool == true then
+        DiscordLib:Notification("Notification", "!! You Got  Golden Hook !!", "Wow !")
+		while wait() do 
+		                                        game.StarterGui:SetCore("SendNotification", {
+                                        Title = "Blacky Notification", 
+                                        Text = "You Get Golden Hook !!",
+                                        Icon = "",
+                                        Duration = 3
+                                    })
+end
+end
+end)
 AutoFram:Toggle("Phoenix Scroll Notification",false,function(v)
 	Bool = v
 	if game.Players.LocalPlayer.Backpack:FindFirstChild("Phoenix Scroll") then
