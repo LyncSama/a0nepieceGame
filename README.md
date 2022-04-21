@@ -2,6 +2,12 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Patsk
 
 local GUI = library:new("Blacky Hub","A 0nepiece Game")
 local AutoFram = GUI:Tap("Main")
+AutoFram:Button("Tween Maokuma (Quest Giver)",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(3, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(3008.46533203125, -56.859169006347656, 1225.415771484375)}):Play()
+end)
+AutoFram:Line()
 AutoFram:Toggle("Auto Farm Marco ",false,function(bool)
  _G.bandit = bool
  end)
@@ -93,9 +99,6 @@ spawn(function()
 local TweenService = game:GetService("TweenService")
 local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
 {CFrame = CFrame.new(2770.9736328125, 142.89849853515625, 1172.615234375)}):Play()
-if game.Players.Character.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.magnitude <= 50 then
-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(SelectedKillPlayer).Character.HumanoidRootPart.CFrame * CFrame.new(2768.189697265625, 144.00234985351562, 1171.0528564453125)
-end
            end)
          end
      end
