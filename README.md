@@ -767,6 +767,25 @@ AutoFram:Toggle("Enel Pole Notification",false,function(v)
 end
 end
 end)
+AutoFram:Toggle("Enel Drum Notification",false,function(v)
+	Bool = v
+	if game.Players.LocalPlayer.Backpack:FindFirstChild("Raigo Drums") then
+		HaveRaigoDrums = true
+	elseif game.Players.LocalPlayer.Character:FindFirstChild("Raigo Drums") then
+		HaveRaigoDrums = true
+	end
+	if HaveRaigoDrums and Bool == true then
+        DiscordLib:Notification("Notification", "!! You Got  Enel Drums !!", "Wow !")
+		while wait() do 
+		                                        game.StarterGui:SetCore("SendNotification", {
+                                        Title = "Blacky Notification", 
+                                        Text = "You Get Enel Drums !!",
+                                        Icon = "",
+                                        Duration = 3
+                                    })
+end
+end
+end)
 AutoFram:Toggle("Doflamingo Cape Notification",false,function(v)
 	Bool = v
 	if game.Players.LocalPlayer.Backpack:FindFirstChild("Flamingo Cape") then
