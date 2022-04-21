@@ -34,6 +34,11 @@ local AutoFram = serv:Channel("Main")
  end)
  AutoFram:Seperator()
  AutoFram:Label("------- AutoFarm Crocodile -------")
+ AutoFram:Button("Quest Giver",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(-107.7640380859375, -56.592552185058594, 6833.34228515625)}):Play()
+end)
  AutoFram:Toggle("Auto Farm Crocodile ",false,function(bool)
  _G.asdada = bool
  end)
@@ -70,6 +75,11 @@ local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPa
 end)
 AutoFram:Seperator()
 AutoFram:Label("------- AutoFarm Marco -------")
+AutoFram:Button("Quest Giver",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(4), 
+{CFrame = CFrame.new(3008.46533203125, -56.859169006347656, 1225.415771484375)}):Play()
+end)
 AutoFram:Toggle("Auto Farm Marco ",false,function(bool)
  _G.bandit = bool
  end)
@@ -129,6 +139,11 @@ local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPa
 end)
 AutoFram:Seperator()
  AutoFram:Label("------- AutoFarm Katakuri -------")
+ AutoFram:Button("Quest Giver",function()
+    local TweenService = game:GetService("TweenService")
+local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out,0,false,0), 
+{CFrame = CFrame.new(3008.46533203125, -56.859169006347656, 1225.415771484375)}):Play()
+end)
 AutoFram:Toggle("Auto Katakuri",false,function(bool)
 _G.Katakuri = bool
 end)
