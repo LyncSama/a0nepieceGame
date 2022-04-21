@@ -263,7 +263,7 @@ AutoFram:Seperator()
 	elseif game.Players.LocalPlayer.Character:FindFirstChild("Golden Hook") then
 		HaveGoldenHook = true
 	end
-	if HaveMochiFruit and Bool == true then
+	if HaveGoldenHook and Bool == true then
         DiscordLib:Notification("Notification", "!! You Got  Golden Hook !!", "Wow !")
 		while wait() do 
 		                                        game.StarterGui:SetCore("SendNotification", {
