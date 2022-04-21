@@ -804,7 +804,7 @@ AutoFram:Toggle("Doflamingo Cape Notification",false,function(v)
 	Bool = v
 	if game.Players.LocalPlayer.Backpack:FindFirstChild("Flamingo Cape") then
 		HaveFlamingoCape = true
-	elseif game.Players.LocalPlayer.Character:FindFirstChild("Horns") then
+	elseif game.Players.LocalPlayer.Character:FindFirstChild("Flamingo Cape") then
 		HaveFlamingoCape = true
 	end
 	if HaveFlamingoCape and Bool == true then
