@@ -408,7 +408,26 @@ AutoFram:Seperator()
 end
 end
 end)
-AutoFram:Toggle("Marine Cape Notification",false,function(v)
+AutoFram:Toggle("Doflamingo Cape Notification",false,function(v)
+	Bool = v
+	if game.Players.LocalPlayer.Backpack:FindFirstChild("Flamingo Cape") then
+		HaveFlamingoCape = true
+	elseif game.Players.LocalPlayer.Character:FindFirstChild("Horns") then
+		HaveFlamingoCape = true
+	end
+	if HaveFlamingoCape and Bool == true then
+        DiscordLib:Notification("Notification", "!! You Got Doflamingo Cape !!", "Wow !")
+		while wait() do 
+		                                        game.StarterGui:SetCore("SendNotification", {
+                                        Title = "Blacky Notification", 
+                                        Text = "You Get Doflamingo Cape !!",
+                                        Icon = "",
+                                        Duration = 3
+                                    })
+end
+end
+end)
+AutoFram:Toggle("Caesar Horns Notification",false,function(v)
 	Bool = v
 	if game.Players.LocalPlayer.Backpack:FindFirstChild("Horns") then
 		HaveHorns = true
