@@ -132,7 +132,7 @@ local Tw = TweenService:Create(game.Players.LocalPlayer.Character.HumanoidRootPa
 end)
 AutoFram:Seperator()
  AutoFram:Label("------- Auto Skill -------")
-AutoFram:Toggle("Auto Boost + Buso (SetSpawn PhoenixNest First) ",false,function(bool)
+AutoFram:Toggle("Auto Boost + Buso  ",false,function(bool)
     game.Players.localPlayer.Character.Humanoid.Health = 0
 end)
 spawn(function()
